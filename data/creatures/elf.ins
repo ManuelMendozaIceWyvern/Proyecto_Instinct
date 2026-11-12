@@ -1,0 +1,14 @@
+creature Elf
+faction alliance
+health 20
+vision 3
+lifespan 100
+
+start:
+    if enemy_dist == 1 goto flee
+    wait(1)
+    goto start
+
+flee:
+    move(-enemy_dx, -enemy_dy, 2)
+    goto start

@@ -1,0 +1,20 @@
+creature Orc
+faction horde
+health 10
+vision 3
+lifespan 100
+
+start:
+    if enemy_dist == 1 goto bite
+    if enemy_dist > 0 goto hunt
+    move(1, 0, 1)
+    goto start
+
+hunt:
+    move(enemy_dx, enemy_dy, 1)
+    goto start
+
+bite:
+    attack(enemy_dx, enemy_dy, 3)
+    say("¡Grrr!")
+    goto start
